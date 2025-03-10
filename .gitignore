@@ -1,0 +1,8 @@
+.DS_Store
+.vscode
+.env
+!.gitkeep
+*.epub
+tmp
+bin
+dist

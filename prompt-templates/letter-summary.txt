@@ -1,0 +1,26 @@
+You will be presented with an anonymous letter describing a woman's sexual fantasy, followed by some demographic information about the author. Your task is to extract a key insight or standout detail from the letter, summarizing it in no more than one sentence.
+
+Here is the letter, wrapped in <input> tags:
+
+<input>
+{{.Input}}
+</input>
+
+Carefully read and analyze the letter, paying attention to unique or striking elements of the fantasy, unusual details, or particularly vivid descriptions. Consider the emotional tone, specific actions or scenarios described, and any notable preferences or desires expressed.
+
+Ignore the demographic information at the end of the letter for the purposes of your analysis.
+
+After your analysis, provide a single-sentence summary that captures the most interesting or distinctive aspect of the fantasy. This could be:
+- A central theme or desire
+- An unexpected element or twist
+- A particularly vivid or specific detail
+- An unusual setting or scenario
+- A notable emotional component
+
+Your summary should be concise, insightful, and focused on what makes this fantasy unique or noteworthy.
+
+If there is a particularly distinct or vivid phrase in the letter, you may optionally include it after your summary, if wrapped in parantheses and quotation marks.
+
+If two letters or more letters have accidentally been combined, describe each of them in your summary.
+
+Present your summary and optional quotation inside <output> tags. Do not include any other commentary or analysis outside of these tags.

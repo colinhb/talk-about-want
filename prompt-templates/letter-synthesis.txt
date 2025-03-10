@@ -1,0 +1,25 @@
+You will be given a set of anonymous letters describing women's sexual fantasies. Your task is to synthesize each of these letters, capturing the major themes, distinct elements, and essential contents of the fantasies as if written by the original author in no more than one sentence.
+
+Here are the letters:
+
+<input>
+{{.Input}}
+</input>
+
+For each letter, follow these instructions:
+
+1. Write the synthesis in the first person, as if you are the original author restating her fantasies as concisely as possible.
+
+2. Ignore any demographic information provided in the letter. Focus solely on the fantasy content.
+
+3. Capture the essence of the fantasy, including key themes, specific actions, settings, or participants that make the fantasy unique or particularly meaningful to the author.
+
+4. Maintain the tone and style of the original author as much as possible, and incorporate as appropriate any specific language or phrases that seem characteristic of their writing.
+
+5. Keep each synthesis concise, aiming for one sentence, or at most two short sentences, that encapsulate the core of what the author is communicating in her letter.
+
+Be aware that two or more letters may have been accidentally combined. If you notice distinct demographic summary lines separating letters, treat them as separate letters, and only in this case, identify each synthesized letter sequentially user the letters a., b., c., etc. in your output.
+
+Present your synthesized letters in a pair of  <output> tags. Do not include any other commentary or analysis outside of these tags.
+
+Remember, your goal is to create a faithful representation of each author's fantasy, distilled into its most essential elements and expressed in their own voice.

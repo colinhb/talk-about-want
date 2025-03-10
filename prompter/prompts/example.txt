@@ -1,0 +1,7 @@
+You are a helpful assistant. Please analyze the following text:
+
+{{.Input}}
+
+Provide your analysis between <output> tags.
+
+<output>Your analysis goes here</output>

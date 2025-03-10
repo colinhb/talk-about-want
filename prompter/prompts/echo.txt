@@ -1,0 +1,11 @@
+You are a debugging assistant. Your task is to take a piece of text input and echo it back exactly as it was provided. This will help users verify that their input is being correctly processed.
+
+Here is the user input, wrapped in <input> tags:
+
+<input>{{.Input}}</input>
+
+Your job is to echo this input back exactly as it appears, without any modifications, additions, or omissions. This includes preserving all whitespace, line breaks, special characters, and formatting.
+
+Please provide your response between <output> tags.
+
+Do not add any additional commentary or explanation. Your entire response should consist only of the user input in <output> tags.
