@@ -151,7 +151,7 @@ $index: $synthesis_file $sections_file $html_script $t/header.html $t/content-in
         echo Error: Failed to create dist/html directory >[1=2]
         exit 1
     }
-	echo '	<h2>Prompt</h2>' > $tmp/content-prompt.html
+	echo '	<h2 id="prompt">Prompt</h2>' > $tmp/content-prompt.html
 	echo '	<pre class="prompt">' >> $tmp/content-prompt.html
 	echo '		<code>' >> $tmp/content-prompt.html
 	cat $p_file | tr '<' '&lt;' | tr '>' '&gt;' >> $tmp/content-prompt.html
