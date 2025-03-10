@@ -1,7 +1,6 @@
 # ... Talk About Want
 
-**RAW NOTES FOR NOW**
-
+<!--
 ## Notes
 
 The main script (`main.rc`):
@@ -14,8 +13,6 @@ The main script (`main.rc`):
 The mapping from chapters to sections and subsections was implemented manually after reviewing the book's table of contents.
 
 In total, the content extraction requires: a POSIX compliant shell and `awk` implementations and `pandoc`.
-
-<!--
 
 ## Categories
 
