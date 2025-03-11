@@ -154,7 +154,7 @@ $index: $synthesis_file $sections_file $html_script $t/header.html $t/content-in
 	echo '	<h2 id="prompt">Prompt</h2>' > $tmp/content-prompt.html
 	echo '	<pre class="prompt">' >> $tmp/content-prompt.html
 	echo '		<code>' >> $tmp/content-prompt.html
-	cat $p_file | tr '<' '&lt;' | tr '>' '&gt;' >> $tmp/content-prompt.html
+	cat $p_file | sed -e 's/</\&lt;/g' -e 's/>/\&gt;/g' >> $tmp/content-prompt.html
 	echo '		</code>' >> $tmp/content-prompt.html
 	echo '	</pre>' >> $tmp/content-prompt.html
 	cat $synthesis_file | awk -f $html_script > $tmp/content-letters.html || {
