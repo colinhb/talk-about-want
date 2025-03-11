@@ -20,6 +20,6 @@ For each letter, follow these instructions:
 
 Be aware that two or more letters may have been accidentally combined. If you notice distinct demographic summary lines separating letters, treat them as separate letters, and only in this case, identify each synthesized letter sequentially user the letters a., b., c., etc. in your output.
 
-Present your synthesized letters in a pair of  <output> tags. Do not include any other commentary or analysis outside of these tags.
+Present your synthesized letters in a pair of <output> tags. Do not include any other commentary or analysis outside of these tags.
 
 Remember, your goal is to create a faithful representation of each author's fantasy, distilled into its most essential elements and expressed in their own voice.
