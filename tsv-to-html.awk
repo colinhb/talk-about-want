@@ -39,7 +39,7 @@ BEGIN {
     # If we've moved to a new section, print a heading
     if (section != current_section) {
         if (current_section != "") print ""  # Add space between sections
-        print "    <h3 id=\"" section_slug[section_num] "\">" section_heading[section_num] "</h2>"
+        print "    <h3 id=\"" section_slug[section_num] "\">" "<span class=\"number\">" section_num ".</span> " section_heading[section_num] "</h2>"
         current_section = section
         letter_count = 1
     }
