@@ -113,7 +113,10 @@ $p_bin: ./prompter/prompter.go ./prompter/cmd/main.go
         echo Error: Failed to create bin directory >[1=2]
         exit 1
     }
-	cd prompter && go build -o ../$p_bin ./cmd/
+	{ cd prompter && go build -o ../$p_bin ./cmd/ } || {
+		echo Error: Failed to build the prompter binary >[1=2]
+		exit 1
+	}
 	chmod +x $p_bin
 
 $synthesis_file: $epub_marker $letters_marker $dotenv $p_bin $p_file
