@@ -168,6 +168,10 @@ $index: $synthesis_file $sections_file $html_script $t/header.html $t/content-in
 			exit 1
 		}
 	}
+	cp html-static/* dist/html || {
+		echo Error: Failed to copy static HTML files >[1=2]
+		exit 1
+	}
 
 # Clean up built artifacts
 clean:V:
