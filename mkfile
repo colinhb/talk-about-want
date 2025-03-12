@@ -38,9 +38,13 @@ t=html-templates # short variable name to reduce line length
 
 synthesis_file=dist/letter-synthesis.tsv
 
-# Default target
-all:V: index
+# Default target - creates the final HTML output
+# This is the main entry point that will run the entire pipeline
+all:V: html
 
+# Target: epub - Extracts content from the EPUB file
+# Validates the EPUB file checksum, unzips the content to a temporary directory,
+# and creates a marker file to indicate successful extraction
 epub:V: $epub_marker
 
 $epub_marker: $epub_file $epub_sum
@@ -71,6 +75,9 @@ $epub_marker: $epub_file $epub_sum
 		exit 1
 	}
 
+# Target: letters - Extracts individual letters from the EPUB content
+# Processes HTML files from the EPUB to extract plain text letters,
+# converting them using pandoc and organizing them based on the sections mapping
 letters:V: $letters_marker
 
 $letters_marker: $epub_marker $sections_script
@@ -108,6 +115,9 @@ $letters_marker: $epub_marker $sections_script
 		exit 1
 	}
 
+# Target: $p_bin - Builds the prompter binary
+# Compiles the Go code for the prompter tool which handles API interactions
+# with the language model for text synthesis
 $p_bin: ./prompter/prompter.go ./prompter/cmd/main.go
 	mkdir -p bin || {
         echo Error: Failed to create bin directory >[1=2]
@@ -119,6 +129,9 @@ $p_bin: ./prompter/prompter.go ./prompter/cmd/main.go
 	}
 	chmod +x $p_bin
 
+# Target: $synthesis_file - Generates synthesized content from letters
+# Uses the prompter binary to send letters to the language model API
+# and saves the synthesized responses to a TSV file for later processing
 $synthesis_file: $epub_marker $letters_marker $dotenv $p_bin $p_file
 	# Create the prompter output directory
 	mkdir -p $p_output_dir || {
@@ -147,8 +160,17 @@ $synthesis_file: $epub_marker $letters_marker $dotenv $p_bin $p_file
 		exit 1
 	}
 
-index:V: $index
+# Target: html - Creates the final HTML output
+# Builds the index.html file and copies static assets to the distribution directory
+html:V: $index
+	cp html-static/* dist/html || {
+		echo Error: Failed to copy static HTML files >[1=2]
+		exit 1
+	}
 
+# Target: $index - Builds the main HTML index file
+# Combines HTML templates with synthesized letter content and the prompt text
+# to create the final webpage that displays the project results
 $index: $synthesis_file $sections_file $html_script $t/header.html $t/content-intro.html $t/footer.html
     mkdir -p dist/html || {
         echo Error: Failed to create dist/html directory >[1=2]
@@ -169,19 +191,17 @@ $index: $synthesis_file $sections_file $html_script $t/header.html $t/content-in
 			exit 1
 		}
 	}
-	cp html-static/* dist/html || {
-		echo Error: Failed to copy static HTML files >[1=2]
-		exit 1
-	}
 
-# Clean up built artifacts
+# Target: clean - Removes all generated files and directories
+# Deletes temporary files, distribution files, and compiled binaries
+# to reset the project to a clean state
 clean:V:
 	rm -rf $tmp dist/* $p_bin
 
-# Install dependencies
+# Target: deps - Installs project dependencies
 deps:V:
 	# go get -u ./...
 
-# Run tests
+# Target: test - Runs project tests
 test:V:
 	# go test ./...
