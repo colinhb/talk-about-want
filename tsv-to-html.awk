@@ -50,7 +50,6 @@ BEGIN {
     print "    <div class=\"letter\"><span class=\"number\">" letter_count ".</span> " content "</div>"
     letter_count++
 }
-
 END {
 	print "<div class=\"divider\"></div>"
 }

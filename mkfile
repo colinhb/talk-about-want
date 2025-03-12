@@ -176,16 +176,27 @@ $index: $synthesis_file $sections_file $html_script $t/header.html $t/content-in
         echo Error: Failed to create dist/html directory >[1=2]
         exit 1
     }
-	echo '	<h2 id="prompt">Prompt</h2>' > $tmp/content-prompt.html
-	echo '	<pre class="prompt"><code>' >> $tmp/content-prompt.html
-	cat $p_file | sed -e 's/</\&lt;/g' -e 's/>/\&gt;/g' >> $tmp/content-prompt.html
-	echo '	</code></pre>' >> $tmp/content-prompt.html
+	# Letters section
 	cat $synthesis_file | awk -f $html_script > $tmp/content-letters.html || {
 		echo Error: Failed to render TSV into HTML >[1=2]
 		exit 1
 	}
+	# Prompt section
+	echo '	<h2 id="prompt">Prompt</h2>' > $tmp/content-prompt.html
+	echo '	<pre class="prompt"><code>' >> $tmp/content-prompt.html
+	cat $p_file | sed -e 's/</\&lt;/g' -e 's/>/\&gt;/g' >> $tmp/content-prompt.html || {
+		echo Error: Failed to render prompt text >[1=2]
+		exit 1
+	}
+	echo '	</code></pre>' >> $tmp/content-prompt.html
+	# Footer section
+	echo '<div class="divider"></div>' > $tmp/footer.html
+	echo '<p class="footer">Last updated on ' `{date} '</p>' >> $tmp/footer.html
+	echo '</body>' >> $tmp/footer.html
+	echo '</html>' >> $tmp/footer.html
+	# Stitch together the final HTML file
 	rm -f $target
-	for(i in $t/header.html $t/content-intro.html $tmp/content-letters.html $tmp/content-prompt.html $t/footer.html) {
+	for(i in $t/header.html $t/content-intro.html $tmp/content-letters.html $tmp/content-prompt.html $tmp/footer.html) {
 		cat $i >> $target || {
 			echo Error: Failed to append template $i to $target >[1=2]
 			exit 1
