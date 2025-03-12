@@ -86,6 +86,7 @@ $letters_marker: $epub_marker $sections_script
 		echo Error: Failed to create $letters_dir directory >[1=2]
 		exit 1
 	}
+	rm -rf $letters_dir/*
 	html_dir=$epub_dir/OEBPS/html
 	# Check existence of the html directory
 	if(! test -d $html_dir) {
