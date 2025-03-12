@@ -18,7 +18,7 @@ BEGIN {
     }
     
     # Create an array of chapters to skip from a string
-    split("7 29 30 56 57 73 74 79 80 94 95 105 106 127 128 138 139 154 155 167 168 178 179", skip_chapters)
+    split("7 29 30 47 48 56 57 73 74 79 80 94 95 105 106 127 128 138 139 154 155 167 168 178 179", skip_chapters)
 
     # Convert to as associative array for faster lookups
     for (i in skip_chapters) {
