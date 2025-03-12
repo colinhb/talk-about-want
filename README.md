@@ -1,13 +1,11 @@
 # ... Talk About Want
 
+This project processes an EPUB file containing letters, extracts and organizes them by section, and generates synthesized content using an large language model API, which is then rendered to HTML.
+
 - The primary output of this project is at [colinhb.github.io/talk-about-want](https://colinhb.github.io/talk-about-want), which you can visit directly.
 - The core and most interesting component is the embedded Go command and package, which you can read about at [prompter/README.md](prompter/README.md).
 
-## Project Implementation
-
-This project processes an EPUB file containing letters, extracts and organizes them by section, and generates synthesized content using an large language model API, which is then rendered to HTML.
-
-### Dependencies
+## Dependencies
 
 - [Plan 9 port](https://9fans.github.io/plan9port/) (`mk`, `rc`, and other utilities)
 - [Pandoc](https://pandoc.org/) for document conversion
@@ -15,7 +13,7 @@ This project processes an EPUB file containing letters, extracts and organizes t
 - An EPUB file with matching MD5 checksum (see `Want.epub.sum`)
 - An [Anthropic API key](https://www.anthropic.com/api)
 
-### Workflow
+## Workflow
 
 The project uses a Plan 9 style `mkfile` to orchestrate the following workflow:
 
