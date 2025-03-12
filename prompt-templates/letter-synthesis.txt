@@ -18,8 +18,10 @@ For each letter, follow these instructions:
 
 5. Keep each synthesis concise, aiming for one sentence, or at most two short sentences, that encapsulate the core of what the author is communicating in her letter.
 
-Be aware that two or more letters may have been accidentally combined. If you notice distinct demographic summary lines separating letters, treat them as separate letters, and only in this case, identify each synthesized letter sequentially user the letters a., b., c., etc. in your output.
+Be aware that two or more letters may have been accidentally combined. If you notice distinct demographic summary lines or clear topic shifts separating letters, treat them as separate letters, and *only in this case* then label each synthesis sequentially (a.), (b.), (c.), etc., together on a single line. Only add labels to your synthesized letters if there's clear evidence they are distinct submissions.
 
 Present your synthesized letters in a pair of <output> tags. Do not include any other commentary or analysis outside of these tags.
 
-Remember, your goal is to create a faithful representation of each author's fantasy, distilled into its most essential elements and expressed in their own voice.
+Remember, your goal is to create a faithful representation of each author's fantasy, distilled into its most essential elements and expressed in their own voice, while maintaining approximately 15-30 words per synthesis. 
+
+If the letter is short, less than 15-30 words already, please just quote ("[...]") the entire letter rather than provide a synthesis.
